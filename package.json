@@ -25,11 +25,18 @@
     "@aspida/fetch": "^1.1.1",
     "@aspida/node-fetch": "^1.1.1",
     "@aspida/swr": "^1.1.1",
+    "@chakra-ui/react": "^1.0.4",
+    "@emotion/react": "^11.1.4",
+    "@emotion/styled": "^11.0.0",
     "class-validator": "^0.12.2",
+    "dayjs": "^1.9.8",
+    "formik": "^2.2.6",
+    "framer-motion": "^3.1.1",
     "next": "^10.0.3",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "swr": "^0.3.9"
+    "swr": "^0.3.9",
+    "yup": "^0.32.8"
   },
   "devDependencies": {
     "@prisma/cli": "^2.13.1",
@@ -37,6 +44,7 @@
     "@types/jest": "^26.0.19",
     "@types/node": "^14.14.14",
     "@types/react": "^17.0.0",
+    "@types/yup": "^0.29.11",
     "@typescript-eslint/eslint-plugin": "^4.10.0",
     "@typescript-eslint/parser": "^4.10.0",
     "babel-jest": "^26.6.3",
