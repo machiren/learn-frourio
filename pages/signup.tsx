@@ -2,11 +2,14 @@ import { Box, FormControl, FormLabel, Input, InputGroup, Button, Center, InputRi
 import { Formik, Form, Field, FormikHelpers, FormikProps } from 'formik';
 import { object, string } from 'yup';
 import { useState } from 'react';
+import { apiClient } from '../utils/apiClient';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import Layout from '../components/Layout';
 
 export default function SignIn() {
   const [isShowPassword, setShowPassword] = useState(false);
+  const router = useRouter();
   const signUpSchema = object().shape({
     username: string()
     .email('有効なメールアドレス形式ではありません')
@@ -26,11 +29,12 @@ export default function SignIn() {
     password: '',
   }
   const onFormSubmit = (values: typeof initialValues, actions: FormikHelpers<typeof initialValues>) => {
-    setTimeout(() => {
-      actions.setSubmitting(false)
-    }, 2000);
-    console.log(values)
-    console.log(actions)
+    apiClient.signup.post({body: { email: values.username, password: values.password }}).then(res =>{
+      actions.setSubmitting(false);
+      router.push('/profile');
+    }).catch(err => {
+      console.log(err);
+    });
   };
 
   return (
