@@ -1,8 +1,8 @@
 import { Box, FormControl, FormLabel, Input, InputGroup, Button, Center, Heading,InputRightElement, FormErrorMessage } from '@chakra-ui/react';
 import { Formik, Form, Field, FormikHelpers, FormikProps } from 'formik';
 import { useState } from 'react';
-import Layout from '../components/layout';
 import Head from 'next/head';
+import Layout from '../components/Layout';
 
 export default function SignIn() {
   const [isShowPassword, setShowPassword] = useState(false);

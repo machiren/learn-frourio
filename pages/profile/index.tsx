@@ -1,8 +1,8 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import { Button, Heading, useToast } from "@chakra-ui/react"
-import Layout from '../../components/layout';
 import useSWR, { trigger } from 'swr';
+import Layout from '../../components/Layout';
 
 export async function getStaticProps() {
   // ビルド時刻の取得
