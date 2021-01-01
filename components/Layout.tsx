@@ -1,4 +1,4 @@
-import { Box, Heading, Flex, Spacer, Text,Link } from '@chakra-ui/react';
+import { Box, Heading, Flex, Spacer, Text, Link } from '@chakra-ui/react';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router'
 
