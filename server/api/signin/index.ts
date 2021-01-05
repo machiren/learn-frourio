@@ -1,5 +1,7 @@
+import { User } from '../../types/users/index'
 export type Methods = {
-  get: {
-    resBody: string
+  post: {
+    reqBody: Pick<User, 'email' | 'password'>
+    resBody: {}
   }
 }

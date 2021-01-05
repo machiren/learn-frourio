@@ -1,10 +1,11 @@
 import { PrismaClient } from '@prisma/client'
 import { users } from '$prisma/client'
 import { hash } from 'bcrypt'
+import { SignUpBody } from '../../validators/index'
 
 const prisma = new PrismaClient()
 
-export const signup = async (user: Pick<users, 'email' | 'password'>) => {
+export const signup = async (user: SignUpBody) => {
   const hashPassword = await hash(user.password, 4)
   user.password = hashPassword
   try {
