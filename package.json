@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "npm run migrate:dev && run-p dev:*",
-    "dev:client": "next dev -p 3000",
+    "dev:client": "next dev -p 3300",
     "dev:server": "npm run dev --prefix server",
     "dev:aspida": "aspida --watch",
     "build": "run-p build:client build:server",
