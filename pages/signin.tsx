@@ -1,11 +1,14 @@
 import { Box, FormControl, FormLabel, Input, InputGroup, Button, Center, Heading,InputRightElement, FormErrorMessage } from '@chakra-ui/react';
 import { Formik, Form, Field, FormikHelpers, FormikProps } from 'formik';
 import { useState } from 'react';
+import { apiClient } from '../utils/apiClient';
+import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Layout from '../components/Layout';
 
 export default function SignIn() {
   const [isShowPassword, setShowPassword] = useState(false);
+  const router = useRouter();
   const loginButtonText = Object.freeze({
     name: 'ログイン',
     isLoading: '認証中...',
@@ -15,7 +18,14 @@ export default function SignIn() {
     username: '',
     password: ''
   }
-  const onFormSubmit = (values: typeof initialValues, actions: FormikHelpers<typeof initialValues>) => {};
+  const onFormSubmit = (values: typeof initialValues, actions: FormikHelpers<typeof initialValues>) => {
+    apiClient.signin.post({ body: { email: values.username, password: values.password }, config: { mode:'cors', credentials: 'include' } },).then(res =>{
+      actions.setSubmitting(false);
+      router.push('/profile');
+    }).catch(err => {
+      console.log(err);
+    });
+  };
 
   return (
     <>
@@ -34,8 +44,6 @@ export default function SignIn() {
                 <Form>
                   <Field name="username">
                     {({field, form}) => {
-                      console.log(field)
-                      console.log(form)
                       return (
                       <FormControl isRequired isInvalid={form.errors.username && form.touched.username}>
                         <FormLabel htmlFor="username">ユーザーネーム</FormLabel>
@@ -65,7 +73,7 @@ export default function SignIn() {
                     }}
                   </Field>
                   <Center marginTop="24px">
-                    <Button isLoading={props.isSubmitting} loadingText={loginButtonText.isLoading} colorScheme={loginButtonText.color} >{loginButtonText.name}</Button>
+                    <Button type="submit" isLoading={props.isSubmitting} loadingText={loginButtonText.isLoading} colorScheme={loginButtonText.color} >{loginButtonText.name}</Button>
                   </Center>
                 </Form>
               )

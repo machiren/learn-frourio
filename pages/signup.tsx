@@ -29,7 +29,7 @@ export default function SignIn() {
     password: '',
   }
   const onFormSubmit = (values: typeof initialValues, actions: FormikHelpers<typeof initialValues>) => {
-    apiClient.signup.post({body: { email: values.username, password: values.password }}).then(res =>{
+    apiClient.signup.post({ body: { email: values.username, password: values.password }}).then(res =>{
       actions.setSubmitting(false);
       router.push('/profile');
     }).catch(err => {

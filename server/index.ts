@@ -4,13 +4,15 @@ import helmet from 'fastify-helmet'
 import cors from 'fastify-cors'
 import fastifyStatic from 'fastify-static'
 import fastifyJwt from 'fastify-jwt'
+import fastifyCookie from 'fastify-cookie'
 import { JWT_SECRET, SERVER_PORT, BASE_PATH } from './service/envValues'
 import server from './$server'
 
 const fastify = Fastify()
 
 fastify.register(helmet)
-fastify.register(cors)
+fastify.register(cors, { origin: 'http://localhost:3000', credentials: true })
+fastify.register(fastifyCookie)
 fastify.register(fastifyStatic, {
   root: path.join(__dirname, 'public'),
   prefix: BASE_PATH
