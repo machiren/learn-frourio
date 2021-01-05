@@ -11,7 +11,7 @@ import server from './$server'
 const fastify = Fastify()
 
 fastify.register(helmet)
-fastify.register(cors, { origin: 'http://localhost:3000', credentials: true })
+fastify.register(cors, { origin: 'http://localhost:3300', credentials: true })
 fastify.register(fastifyCookie)
 fastify.register(fastifyStatic, {
   root: path.join(__dirname, 'public'),
