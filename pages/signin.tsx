@@ -9,10 +9,17 @@ import Layout from '../components/Layout';
 export default function SignIn() {
   const [isShowPassword, setShowPassword] = useState(false);
   const router = useRouter();
-  const loginButtonText = Object.freeze({
+  const loginButton = Object.freeze({
     name: 'ログイン',
     isLoading: '認証中...',
     color: 'blue',
+  })
+  const googleSignInButton = Object.freeze({
+    name: 'Googleでログイン',
+    color: 'blue',
+    onClick: () => {
+      location.assign('http://localhost:8080/api/signin/google');
+    }
   })
   const initialValues = {
     username: '',
@@ -73,7 +80,8 @@ export default function SignIn() {
                     }}
                   </Field>
                   <Center marginTop="24px">
-                    <Button type="submit" isLoading={props.isSubmitting} loadingText={loginButtonText.isLoading} colorScheme={loginButtonText.color} >{loginButtonText.name}</Button>
+                    <Button type="submit" isLoading={props.isSubmitting} loadingText={loginButton.isLoading} colorScheme={loginButton.color} >{loginButton.name}</Button>
+                    <Button type="button" colorScheme={googleSignInButton.color} variant="outline" onClick={googleSignInButton.onClick} >{googleSignInButton.name}</Button>
                   </Center>
                 </Form>
               )

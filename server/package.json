@@ -24,7 +24,9 @@
     "fastify-helmet": "^5.0.3",
     "fastify-jwt": "^2.2.0",
     "fastify-multipart": "^3.3.1",
-    "fastify-static": "^3.3.0"
+    "fastify-oauth2": "^4.2.1",
+    "fastify-static": "^3.3.0",
+    "fastify-swagger": "^3.5.0"
   },
   "devDependencies": {
     "@prisma/cli": "^2.13.1",

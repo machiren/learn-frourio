@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Button, Heading, useToast } from "@chakra-ui/react"
-import useSWR, { trigger } from 'swr';
 import Layout from '../../components/Layout';
 
 export async function getStaticProps() {
@@ -20,11 +20,6 @@ export async function getStaticProps() {
 
 export default function Profile({name, build_time}){
   const toast = useToast();
-  const { data, error } = useSWR(
-    '/api/hello',
-    (url: string) => fetch(url).then((res) => res.json()),
-    { initialData: { name: '初期データ' }}
-  );
 
   return (
     <Layout>
@@ -48,10 +43,6 @@ export default function Profile({name, build_time}){
       </Heading>
       <p>私は {name} です</p>
       <p>ビルドした日時は {build_time} です</p>
-      <p>/api/hello/の結果は{data.name}です</p>
-      <Button onClick={() => trigger('/api/hello')}>
-        手動でデータフェッチ！
-      </Button>
       <Button
         onClick={() =>
           toast({

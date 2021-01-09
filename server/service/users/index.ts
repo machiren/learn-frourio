@@ -10,7 +10,7 @@ export const signup = async (user: SignUpBody) => {
   user.password = hashPassword
   try {
     const [result] = await prisma.$transaction([
-      prisma.users.create({ data: user })
+      prisma.users.create({ data: { ...user, provider: 'email' } })
     ])
     delete (result as Partial<users>).password
     return result

@@ -7,18 +7,18 @@ generator client {
   provider = "prisma-client-js"
 }
 
-model Task {
-  id    Int     @id @default(autoincrement())
-  label String
-  done  Boolean @default(false)
-}
-
 model users {
-  id        Int       @id @default(autoincrement())
-  email     String
-  password  String
-  name      String?
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
-  deletedAt DateTime?
+  id         Int       @id @default(autoincrement())
+  email      String?
+  password   String?
+  name       String?
+  pictureUrl String?
+  provider   String
+  providerId String?
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  deletedAt  DateTime?
+
+  @@unique([provider, providerId])
+  @@unique([email, provider])
 }
