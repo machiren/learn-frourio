@@ -16,7 +16,7 @@ export const signin = async ({
     if (!auth) {
       throw new Error('unauthorized')
     }
-    const isValid = await compare(password, auth.password)
+    const isValid = await compare(password, auth.password!)
     if (!isValid) {
       throw new Error('unauthorized')
     }
