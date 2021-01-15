@@ -19,8 +19,8 @@ export async function getStaticProps() {
 
 const Home = ({firstArticles}) => {
   const articles = firstArticles.map((article) => {
-    return (<Box maxW="320px" borderWidth="1px" borderRadius="lg" overflow="hidden">
-              <Image src={article.pictureUrl} />
+    return (<Box key={article.id} maxW="320px" borderWidth="1px" borderRadius="lg" overflow="hidden" m="16px">
+              <Image src={article.pictureUrl} objectFit="cover" />
               <Box p="6">
                 <Box d="flex" alignItems="baseline">
                   <Badge borderRadius="full" px="2" colorScheme="teal">New</Badge>
