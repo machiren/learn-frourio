@@ -33,6 +33,6 @@ model articles {
   pictureUrl String?
   createdAt  DateTime  @default(now())
   updatedAt  DateTime? @updatedAt
-
+  
   user users @relation(fields: [userId], references: [id])
 }
