@@ -14,7 +14,7 @@ export const fastify = Fastify()
 fastify.register(helmet)
 fastify.register(fastifyCookie)
 fastify.register(cors, {
-  origin: ['http://localhost:3300'],
+  origin: [process.env.WEB_ORIGIN!],
   credentials: true
 })
 fastify.register(fastifyJwt, { secret: JWT_SECRET })
