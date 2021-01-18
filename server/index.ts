@@ -9,7 +9,7 @@ import oauthPlugin from 'fastify-oauth2'
 import { JWT_SECRET, SERVER_PORT, BASE_PATH } from './service/envValues'
 import server from './$server'
 
-const fastify = Fastify()
+export const fastify = Fastify()
 
 fastify.register(helmet)
 fastify.register(fastifyCookie)
