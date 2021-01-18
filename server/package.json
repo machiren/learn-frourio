@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@prisma/client": "^2.13.1",
+    "aws-lambda-fastify": "^1.4.4",
     "bcrypt": "^5.0.0",
     "class-validator": "^0.12.2",
     "dotenv": "^8.2.0",

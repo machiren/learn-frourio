@@ -1,0 +1,8 @@
+org: machiren
+app: my-lambda-app
+name: aws-lambda-starter
+component: aws-lambda
+
+inputs:
+  src: ./
+  handler: handler.handler

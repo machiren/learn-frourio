@@ -41,3 +41,6 @@ server/public/icons/*
 
 # storybook
 build
+
+# lambda
+.serverless
